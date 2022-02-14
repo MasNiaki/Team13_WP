@@ -3,7 +3,7 @@ create database team13;
 
 # create table game
 create table Game (
-uid int auto_increment primary key,
+id int auto_increment primary key,
 title varchar(50),
 genre varchar(50),
 short_description varchar(50),
@@ -19,10 +19,10 @@ drop table Game;
 
 # create table Purchase
 create table Purchase (
-uid int,
+id int,
 user_id varchar(50),
 game_id varchar(50),
-FOREIGN KEY (uid) REFERENCES Game(uid)
+FOREIGN KEY (id) REFERENCES Game(id)
 );
 
 describe Purchase;
@@ -32,12 +32,12 @@ drop table Purchase;
 
 # create table Comments
 create table Comments (
-uid int,
+id int,
 texts varchar(50),
 user_uid varchar(50),
 game_uid varchar(50),
 creation_date timestamp,
-FOREIGN KEY (uid) REFERENCES Game(uid)
+FOREIGN KEY (id) REFERENCES Game(id)
 );
 
 describe Comments;
@@ -47,11 +47,11 @@ drop table Comments;
 
 # create table Users
 create table Users (
-uid int,
+id int,
 username varchar(50),
 email varchar(50),
 passwords varchar(50),
-FOREIGN KEY (uid) REFERENCES Game(uid)
+FOREIGN KEY (id) REFERENCES Game(id)
 );
 
 describe Users;
