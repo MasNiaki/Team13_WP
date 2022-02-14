@@ -1,8 +1,8 @@
 <?php
 $servername="db";
-$username="team13";
-$password="team13";
-$dbname ="team13";
+$username="app2";
+$password="masoud";
+$dbname ="app2";
 // creating connection 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -1,17 +1,16 @@
 <?php
 include 'header.php';
 include 'db.php'; 
-$sql = "select * from Game";
+$sql = "select * from studentsinfo";
 $result = $conn->query($sql);
 if($result ->num_rows > 0) {
 //fetch_assoc(): It fetches result as an associative array.
-echo "<table class=\"table\"><tr><th>ID</th><th>Title</th><th>Genre</th>
-<th>Short Description</th><th>Long Description</th><th>Title of Image</th><th>Release Date</th> </tr>";
+echo "<table class=\"table\"><tr><th>ID</th><th>First Name</th><th>Last Name</th>
+<th>City</th><th>Group ID</th> </tr>";
     while($row = $result ->fetch_assoc()){
-        echo "<tr><td>" . $row["id"] . "</td><td>". $row["title"]."</td> <td>". $row["genre"] 
+        echo "<tr><td>" . $row["id"] . "</td><td>". $row["fname"]."</td> <td>". $row["lname"] 
         
-        ."</td><td>". $row["short_description"]. "</td><td>". $row["long_description"]
-        ."</td></tr>". $row["title_image"]. "</td><td>". $row["release_date"]
+        ."</td><td>". $row["city"]. "</td><td>". $row["groupid"]
         ."</td></tr>";
     }
     echo "</table>";
