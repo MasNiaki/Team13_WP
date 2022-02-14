@@ -1,0 +1,327 @@
+:root {
+    --footer-height: 130px;
+    --section-height: max(500px, 100vh);
+    /*--section-height: 100vh;*/
+    --info-panel-background: #000a;
+    --whole-page-height: calc(7 * var(--section-height) + var(--footer-height))
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /*min-width: 1000px;*/
+    background: linear-gradient(
+            #000000 0%,
+            #222222 100%
+    );
+    font-family: 'Cutive Mono', sans-serif;
+    font-size: 1.1em;
+    color: white;
+}
+
+.hero-section {
+
+    height: var(--section-height);
+    position: relative;
+
+    padding: 50px;
+    user-select: none;
+}
+
+.hero-section > .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.hero-section > .top > .title {
+    text-align: center;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.hero-section > .top > .subtitle {
+    font-size: 2em;
+}
+
+.hero-section > .main-game-title {
+    font-weight: bold;
+    /*Very strange thing to do but trust me, the text is
+    always at the turtle's wand.*/
+    position: absolute;
+    left: 60%;
+    top: 50%
+}
+
+.hero-section > .main-game-title > .title {
+    font-size: 7vw;
+}
+
+.hero-section > .main-game-title > .subtitle {
+    font-size: 4vw;
+}
+
+.game-container {
+    display: flex;
+    align-items: center;
+
+    height: var(--section-height);
+    position: relative;
+}
+
+/*Makes all the content of the pages elevated above the "background images"*/
+.game-container *:not(.background-image-faded),
+.hero-section *:not(.background-image-faded) {
+    z-index: 1;
+}
+
+.game-container.left {
+    justify-content: flex-start;
+}
+
+.game-container.right {
+    justify-content: flex-end;
+}
+
+.background-image-faded {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    mask: radial-gradient(
+            70% 50% at center,
+            rgba(1, 1, 1, 1) 20%,
+            rgba(1, 1, 1, 0) 100%);
+    /*My IDE complains but without this statement, chromium-based browsers don't display the page properly*/
+    /*noinspection CssInvalidPropertyValue*/
+    -webkit-mask: radial-gradient(
+            70% 50% at center,
+            rgba(1, 1, 1, 1) 20%,
+            rgba(1, 1, 1, 0) 100%);
+    object-fit: cover;
+    user-select: none;
+}
+
+
+.border {
+    border: 1px solid white;
+}
+
+.info-panel {
+    background: var(--info-panel-background);
+    width: 380px;
+}
+
+.info-panel .title {
+    text-align: center;
+    font-size: 2.5em;
+    padding: 0.1em;
+    border-bottom: 1px solid white;
+}
+
+.info-panel .text {
+    padding: 1em;
+}
+
+.info-panel > .buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.buttons > .button {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    background: var(--info-panel-background);
+    user-select: none;
+
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+.buttons > .button:hover {
+    color: black;
+    background: #fffd;
+}
+
+.buttons > .button:last-child {
+    font-weight: bold;
+}
+
+/* Gallery section */
+.gallery-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.gallery-section > .title {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.gallery-section #gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery-section > #gallery > .game a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 7px 15px #000;
+}
+
+.gallery-section > #gallery > .game {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    height: 220px;
+    margin: 20px;
+}
+
+.gallery-section > #gallery > .game > .title {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    /*text-overflow: ellipsis;*/
+    /*overflow: hidden;*/
+    /*white-space: nowrap;*/
+}
+
+.gallery-section > #gallery > .game img {
+    object-fit: cover;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+}
+
+.gallery-section #gallery img:hover {
+    transform: scale(1.4);
+}
+
+
+.join-us-section, .game-container, .gallery-section {
+    padding: min(100px, 5vw);
+}
+
+/* JOIN US SECTION*/
+.join-us-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.join-us-section > .title {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+/*Form styling*/
+.join-us-section > .contact-form {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 5fr;
+    gap: 20px;
+}
+
+.join-us-section > .contact-form > input, select, textarea {
+    padding: 10px;
+    width: 100%;
+    font-size: 1.2em;
+    font-family: sans-serif;
+    background: transparent;
+    color: white;
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+input::placeholder, textarea::placeholder {
+    opacity: 1; /*Firefox*/
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+.join-us-section > .contact-form > input {
+    border-bottom: 1px solid white;
+}
+
+.join-us-section > .contact-form > select > option {
+    background: black;
+}
+
+.join-us-section > .contact-form > input[type=submit] {
+    border: 1px solid white;
+    cursor: pointer;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    transition: background 0.4s ease, color 0.4s ease;
+    border-radius: 5px;
+}
+
+.join-us-section > .contact-form > input[type=submit]:hover {
+    color: black;
+    background: white;
+}
+
+.join-us-section > .contact-form > textarea#message {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.footer-section {
+    height: var(--footer-height);
+    padding: 17px 7%;
+    display: grid;
+    grid-template-columns: auto auto;
+    background: #000;
+}
+
+.footer-section > .left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-section > .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer-section img {
+    width: 30px;
+}
+
+.footer-section > .right-side > .icons {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 30px 30px;
+    grid-template-rows: 30px 30px;
+}
