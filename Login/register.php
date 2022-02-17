@@ -74,7 +74,8 @@
         <h1>Register</h1>
         <form action="process.php" method="post">
             <input type="text" name="username" placeholder="username">
-            <input type="password" name="password" placeholder="password">
+            <input type="password" name="passwords" placeholder="passwords">
+            <input type="password" name="email" placeholder="email">
             <button type="submit" name="register">Register</button>
         </form>
     </div>

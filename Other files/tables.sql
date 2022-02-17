@@ -58,3 +58,20 @@ describe Users;
 select * from Users;
 drop table Users;
 
+# create table Login
+create table Login (
+id int,
+username varchar(50),
+passwords varchar(50),
+FOREIGN KEY (id) REFERENCES Game(id)
+);
+
+# create table Register
+create table Register (
+id int,
+fullname varchar(50),
+email varchar(50),
+username varchar(50),
+passwords varchar(50),
+FOREIGN KEY (id) REFERENCES Game(id)
+);
