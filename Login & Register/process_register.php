@@ -1,17 +1,18 @@
 <?php include 'config.php' ;
-$username= $_POST['username'];
+$fullname= $_POST['fullname'];
 $email= $_POST['email'];
+$username= $_POST['username'];
 $passwords= $_POST['passwords'];
-if (empty($_POST['username'])) {
-    echo "<h1>Please input username</h1>";
+if (empty($_POST['fullname'])) {
+    echo "<h1>Please input fullname</h1>";
 } 
     else {
-$sql="insert into Users (username, email, passwords)
-values('$username', '$email', '$passwords')";
+$sql="insert into Register (fullname, email, username, passwords)
+values('$fullname', '$email', '$username', '$passwords')";
 
 if($conn->query($sql) === TRUE) {
     echo "New record added";
-    echo "<a href='login.php' class='top'>Home </a>";
+    echo "<a href='register.php' class='top'>Home </a>";
 }
 else
 {
