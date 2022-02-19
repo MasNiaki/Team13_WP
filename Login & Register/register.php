@@ -10,7 +10,7 @@
             height: 100%;
         }
         body {
-            background: #007bec;
+            background: black;
             color: #fff;
             font-size: 1.5em;
             font-weight: 400;
@@ -74,7 +74,7 @@
         <h1>Register</h1>
         <form action="process_register.php" method="post">
             <input type="text" name="fullname" placeholder="fullname">
-            <input type="password" name="email" placeholder="email">
+            <input type="text" name="email" placeholder="email">
             <input type="text" name="username" placeholder="username">
             <input type="password" name="passwords" placeholder="password">
             <button type="submit" name="register">Register</button>

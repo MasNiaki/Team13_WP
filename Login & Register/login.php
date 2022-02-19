@@ -10,7 +10,7 @@
             height: 100%;
         }
         body {
-            background: #007bec;
+            background: black;
             color: #fff;
             font-size: 1.5em;
             font-weight: 400;
