@@ -8,8 +8,7 @@
         html,
         body {
             height: 100%;
-        }
-        body {
+            width: 100%;
             background: black;
             color: #fff;
             font-size: 1.5em;
